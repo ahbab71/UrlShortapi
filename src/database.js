@@ -14,9 +14,16 @@ const Users = db.define('users',{
 })
 
 const ShortLink = db.define('direction',{
+    //user_id: Sequelize.NUMERIC,
     direction:Sequelize.TEXT,
     hash:Sequelize.TEXT,
 })
+
+db.sync({force:true})
+    .then(e=>{
+        console.log("Database Synced");
+        
+    }).catch(e=>{console.log(e.message)})
 
 module.exports = {
     db, Users, ShortLink

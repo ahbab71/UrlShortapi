@@ -5,12 +5,13 @@ const crypto = require('crypto');
 }
 
 function mix(password,salt) {
-    return crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512')
+    return crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512')
 } 
 
 function generate(password) {
     let salt = getRandomSalt();
     let hash = mix(password, salt);
+    return {salt,hash};
 }
 
 function validate(password, hash, salt) {
