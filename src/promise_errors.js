@@ -7,11 +7,12 @@ module.exports = function (prom) {
         .then(d => {
             data = d;
             resolve([error, data])
-        }).catch(e => {
+        })
+        .catch(e => {
             error = e;
             resolve([error, data])
         });
-    });
+    })
     
 }
 
